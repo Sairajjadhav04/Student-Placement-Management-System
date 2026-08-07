@@ -28,4 +28,27 @@ public class Student {
     public double getCgpa() {
         return cgpa;
     }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    public void setCgpa(double cgpa) {
+        this.cgpa = cgpa;
+    }
+    public void display ()
+    {
+        System.out.println("Student ID : " + studentId);
+        System.out.println("Name : " + name);
+        System.out.println("Email : " + email);
+        System.out.println("Branch : " + branch);
+        System.out.println("Overall CGPA : " + cgpa);
+    }
 }
