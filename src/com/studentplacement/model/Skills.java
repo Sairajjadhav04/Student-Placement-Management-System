@@ -1,4 +1,4 @@
-package model;
+package com.studentplacement.model;
 
 public class Skills {
 
