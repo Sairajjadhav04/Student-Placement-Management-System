@@ -1,6 +1,6 @@
 package com.studentplacement.model;
 
-public class Company_Test {
+public class CompanyTest {
 
     public static void main(String[] args) {
         Company company = new Company(
