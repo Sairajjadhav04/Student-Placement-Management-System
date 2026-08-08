@@ -57,12 +57,10 @@ public class Company {
     @Override
     public String toString()
     {
-        return  "Company{" +
-                "companyId = " + Company_id +'\n'+
+        return "companyId = " + Company_id +'\n'+
                 "companyName = " + Company_name + '\n' +
                 "location = " + Company_location + '\n' +
                 "packageOffered = " + Package_offered +"LPA\n"+
-                "jobRole = " + Job_Role + '\n' +
-                '}';
+                "jobRole = " + Job_Role + '\n';
     }
 }
