@@ -7,26 +7,31 @@ public class Placement {
     //job role
     //package/salary
     //placement status
+    //Company ID and placement dates
     //these record to add in
     private int Placement_id;
     private int Student_id;
+    private int Company_id;
     private String CompanyName;
     private String JobRole;
     private double salary;
     private String Placement_status;
+    private String PlacementDate;
     //We are creating a default constructor
     public Placement() {
     }
     //Now to create Parameterized Constructor
-    public Placement(int Placement_id,int Student_id , String CompanyName , String JobRole
-    , double salary , String Placement_status)
+    public Placement(int Placement_id,int Student_id , int Company_id ,String CompanyName , String JobRole
+    , double salary , String Placement_status,String PlacementDate)
     {
         this.Placement_id = Placement_id;
         this.Student_id = Student_id;
+        this.Company_id = Company_id;
         this.CompanyName = CompanyName;
         this.JobRole = JobRole;
         this.salary = salary;
         this.Placement_status = Placement_status;
+        this.PlacementDate=PlacementDate;
     }
     //Using Getters and Setters Method to access or change them
     public int getPlacement_id() {
@@ -42,6 +47,14 @@ public class Placement {
     }
     public void setStudent_id(int student_id) {
         Student_id = student_id;
+    }
+
+    public int getCompany_id() {
+        return Company_id;
+    }
+
+    public void setCompany_id(int company_id) {
+        Company_id = company_id;
     }
 
     public String getCompanyName() {
@@ -75,14 +88,23 @@ public class Placement {
     public void setPlacement_status(String placement_status) {
         Placement_status = placement_status;
     }
+
+    public String getPlacementDate() {
+        return PlacementDate;
+    }
+
+    public void setPlacementDate(String placementDate) {
+        PlacementDate = placementDate;
+    }
+
     //Making display function which displays output whenever it required
-    public void display()
-    {
-        System.out.println("Placement ID : "+Placement_id);
-        System.out.println("Student ID : "+Student_id);
-        System.out.println("Company Name : "+CompanyName);
-        System.out.println("Job Role : "+JobRole);
-        System.out.println("Package offered : "+salary+" LPA");
-        System.out.println("Placement status : "+Placement_status);
+    @Override
+    public String toString() {
+        return "\nPlacement ID = " + Placement_id +
+                "\nStudent ID = " + Student_id+
+                "\nCompany ID = " + Company_id +
+                "\nCompany Name = " + CompanyName +
+                "\nPlacement Date = " + PlacementDate+
+                "\nStatus = " + Placement_status;
     }
 }

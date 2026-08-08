@@ -6,13 +6,15 @@ public class PlacementTest {
         Placement placement = new Placement(
                 101,
                 1,
+                16,
                 "TCS",
                 "Java Developer",
                 6.5,
-                "Selected"
+                "Selected",
+                "04/05/2026"
         );
 
-        placement.display();
+        placement.toString();
 
     }
 }
