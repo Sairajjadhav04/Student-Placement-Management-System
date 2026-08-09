@@ -47,8 +47,10 @@ public class PlacementDaoTest {
                 102,
                 202,
                 "Infosys",
-                "10/07/2026",
-                "Joined"
+                "Developer",
+                49500.86,
+                "05/03/2026",
+                "Selected"
         );
         placementDao.displayPlacementById(502);
         System.out.println("\n===== DELETE PLACEMENT =====");

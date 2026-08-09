@@ -14,7 +14,7 @@ public class PlacementDao {
     {
         if (PlacementList.isEmpty())
         {
-            System.out.println("No Placem,ent records");
+            System.out.println("No Placement records");
             return;
         }
         else
@@ -40,6 +40,8 @@ public class PlacementDao {
                                 int studentId,
                                 int companyId,
                                 String companyName,
+                                String jobrole,
+                                double salary,
                                 String placementDate,
                                 String status) {
         for (Placement placement : PlacementList) {
@@ -47,6 +49,8 @@ public class PlacementDao {
                 placement.setStudent_id(studentId);
                 placement.setCompany_id(companyId);
                 placement.setCompanyName(companyName);
+                placement.setJobRole(jobrole);
+                placement.setSalary(salary);
                 placement.setPlacementDate(placementDate);
                 placement.setPlacement_status(status);
                 System.out.println("Placement updated successfully.");
