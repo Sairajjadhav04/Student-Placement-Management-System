@@ -2,13 +2,13 @@ package com.studentplacement;
 import com.studentplacement.model.Company;
 import com.studentplacement.model.Placement;
 import com.studentplacement.model.Student;
-import com.studentplacement.dao.StudentDao;
-import com.studentplacement.dao.CompanyDao;
+import com.studentplacement.service.StudentService;
+import com.studentplacement.service.CompanyService;
 import com.studentplacement.dao.PlacementDao;
 import java.util.Scanner;
 public class Main {
     public void StudentManagement(Scanner sc) {
-        StudentDao sd = new StudentDao();
+        StudentService sd = new StudentService();
         int choices;
         do {
             System.out.println("\tStudent Management System");
@@ -83,7 +83,7 @@ public class Main {
     }
     public void CompanyManagement(Scanner sc) {
         int choice;
-        CompanyDao cd = new CompanyDao();
+        CompanyService cd = new CompanyService();
         do {
             System.out.println("\n\tCompany Management System");
             System.out.println("1. Add Company ");
