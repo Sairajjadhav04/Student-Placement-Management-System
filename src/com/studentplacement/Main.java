@@ -4,7 +4,7 @@ import com.studentplacement.model.Placement;
 import com.studentplacement.model.Student;
 import com.studentplacement.service.StudentService;
 import com.studentplacement.service.CompanyService;
-import com.studentplacement.dao.PlacementDao;
+import com.studentplacement.service.PlacementService;
 import java.util.Scanner;
 public class Main {
     public void StudentManagement(Scanner sc) {
@@ -160,7 +160,7 @@ public class Main {
 
     }
     public void PlacementManagement(Scanner sc) {
-        PlacementDao pd = new PlacementDao();
+        PlacementService pd = new PlacementService();
         int choice;
         do {
             System.out.println("\n\tPlacement Management System");
@@ -203,7 +203,7 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("\tDisplay all Placements Records ");
-                    pd.DisplayAllPlacements();
+                    pd.displayAllPlacements();
                     break;
                 case 3:
                     System.out.println("\tDisplay Placement by ID ");
