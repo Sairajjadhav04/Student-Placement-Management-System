@@ -5,6 +5,7 @@ import com.studentplacement.model.Student;
 import com.studentplacement.service.StudentService;
 import com.studentplacement.service.CompanyService;
 import com.studentplacement.service.PlacementService;
+import com.studentplacement.util.InputValidation;
 import java.util.Scanner;
 public class Main {
     public void StudentManagement(Scanner sc) {
@@ -18,72 +19,93 @@ public class Main {
             System.out.println("4. Update the student ");
             System.out.println("5. Search the student ");
             System.out.println("6. Exit");
-            System.out.print("Enter your choice : ");
-            choices = sc.nextInt();
-            sc.nextLine();
+            choices = InputValidation.readInt(sc, "Enter your choice : ");
             switch (choices) {
                 case 1:
                     System.out.println("\tAdd the Student ");
-                    System.out.print("Enter Student ID: ");
-                    int id = sc.nextInt();
-                    sc.nextLine();
-                    System.out.print("Enter Name: ");
-                    String name = sc.nextLine();
-                    System.out.print("Enter Email: ");
-                    String email = sc.nextLine();
-                    System.out.print("Enter Branch: ");
-                    String branch = sc.nextLine();
-                    System.out.print("Enter CGPA: ");
-                    double cgpa = sc.nextDouble();
-                    Student S = new Student(id, name, email, branch, cgpa);
+                    int id = InputValidation.readInt(sc, "Enter Student ID: ");
+                    String name = InputValidation.readString(
+                            sc, "Enter Name: ");
+                    String email = InputValidation.readEmail(
+                            sc, "Enter Email: ");
+                    String branch = InputValidation.readString(
+                            sc, "Enter Branch: ");
+                    double cgpa = InputValidation.readCgpa(
+                            sc, "Enter CGPA: ");
+                    Student S = new Student(
+                            id, name, email, branch, cgpa);
                     sd.addStudent(S);
                     break;
+
                 case 2:
                     System.out.println("\tDisplay all Students");
                     sd.displayAllStudents();
                     break;
+
                 case 3:
                     System.out.println("\tDelete the Student");
-                    System.out.println("Enter Student Id to delete : ");
-                    int Delete_ID = sc.nextInt();
+
+                    int Delete_ID = InputValidation.readInt(
+                            sc, "Enter Student Id to delete : ");
+
                     sd.deleteStudent(Delete_ID);
                     break;
+
                 case 4:
                     System.out.println("\tUpdate the Student ");
-                    System.out.print("Enter new Student ID: ");
-                    int update_id = sc.nextInt();
-                    sc.nextLine();
-                    System.out.print("Enter new Name: ");
-                    String update_name = sc.nextLine();
-                    System.out.print("Enter new Email: ");
-                    String update_email = sc.nextLine();
-                    System.out.print("Enter new Branch: ");
-                    String update_branch = sc.nextLine();
-                    System.out.print("Enter new CGPA: ");
-                    double update_cgpa = sc.nextDouble();
-                    Student Update_Student =
-                            new Student(update_id, update_name, update_email,
-                                    update_branch, update_cgpa);
-                    sd.updateStudent(update_id, update_name, update_email,
-                            update_branch, update_cgpa);
+
+                    int update_id = InputValidation.readInt(
+                            sc, "Enter new Student ID: ");
+
+                    String update_name = InputValidation.readString(
+                            sc, "Enter new Name: ");
+
+                    String update_email = InputValidation.readEmail(
+                            sc, "Enter new Email: ");
+
+                    String update_branch = InputValidation.readString(
+                            sc, "Enter new Branch: ");
+
+                    double update_cgpa = InputValidation.readCgpa(
+                            sc, "Enter new CGPA: ");
+
+                    sd.updateStudent(
+                            update_id,
+                            update_name,
+                            update_email,
+                            update_branch,
+                            update_cgpa);
+
                     break;
+
                 case 5:
                     System.out.println("\tSearch the Student");
-                    System.out.println("Enter ID to search the student : ");
-                    int Search_id = sc.nextInt();
+
+                    int Search_id = InputValidation.readInt(
+                            sc, "Enter ID to search the student : ");
+
                     sd.displayStudentById(Search_id);
                     break;
+
                 case 6:
-                    System.out.println("Thank you for your response visit again !! ");
+                    System.out.println(
+                            "Thank you for your response visit again !! ");
                     break;
+
                 default:
-                    System.out.println("Invalid choice , Enter correct choice !");
+                    System.out.println(
+                            "Invalid choice , Enter correct choice !");
             }
+
         } while (choices != 6);
     }
+
+
     public void CompanyManagement(Scanner sc) {
+
         int choice;
         CompanyService cd = new CompanyService();
+
         do {
             System.out.println("\n\tCompany Management System");
             System.out.println("1. Add Company ");
@@ -92,76 +114,108 @@ public class Main {
             System.out.println("4. Update Company records");
             System.out.println("5. Delete Company records");
             System.out.println("6. Exit");
-            System.out.print("Enter your choice : ");
-            choice = sc.nextInt();
-            sc.nextLine();
+
+            choice = InputValidation.readInt(
+                    sc, "Enter your choice : ");
+
             switch (choice) {
+
                 case 1:
                     System.out.println("\tAdd Company ");
-                    System.out.print("\nEnter the Company ID : ");
-                    int Id = sc.nextInt();
-                    sc.nextLine();
-                    System.out.print("Enter Company Name : ");
-                    String name = sc.nextLine();
-                    System.out.print("Enter Company Location : ");
-                    String location = sc.nextLine();
-                    System.out.print("Enter Package Offered : ");
-                    float c_package = sc.nextFloat();
-                    sc.nextLine();
-                    System.out.print("Enter Job Role : ");
-                    String JobRole = sc.nextLine();
-                    Company C = new Company(Id, name, location,
-                            c_package, JobRole);
+
+                    int Id = InputValidation.readInt(
+                            sc, "\nEnter the Company ID : ");
+
+                    String name = InputValidation.readString(
+                            sc, "Enter Company Name : ");
+
+                    String location = InputValidation.readString(
+                            sc, "Enter Company Location : ");
+
+                    float c_package = InputValidation.readFloat(
+                            sc, "Enter Package Offered : ");
+
+                    String JobRole = InputValidation.readString(
+                            sc, "Enter Job Role : ");
+
+                    Company C = new Company(
+                            Id,
+                            name,
+                            location,
+                            c_package,
+                            JobRole);
+
                     cd.addCompany(C);
                     break;
+
                 case 2:
                     System.out.println("Display all Companies : ");
                     cd.displayAllCompanies();
                     break;
+
                 case 3:
                     System.out.println("Search Company by id");
-                    System.out.println("Enter Company ID : ");
-                    int id = sc.nextInt();
+
+                    int id = InputValidation.readInt(
+                            sc, "Enter Company ID : ");
+
                     cd.displayCompanyById(id);
                     break;
+
                 case 4:
                     System.out.println("Update Company records ");
-                    System.out.print("\nEnter new Company ID : ");
-                    int up_Id = sc.nextInt();
-                    sc.nextLine();
-                    System.out.print("Enter new Company Name : ");
-                    String up_name = sc.nextLine();
-                    System.out.print("Enter new Company Location : ");
-                    String up_location = sc.nextLine();
-                    System.out.print("Enter new Package Offered : ");
-                    float up_c_package = sc.nextFloat();
-                    sc.nextLine();
-                    System.out.print("Enter new Job Role : ");
-                    String up_JobRole = sc.nextLine();
-                    Company up_c =
-                            new Company(up_Id, up_name, up_location,
-                                    up_c_package, up_JobRole);
-                    cd.updateCompany(up_Id, up_name, up_location,
-                            up_c_package, up_JobRole);
+
+                    int up_Id = InputValidation.readInt(
+                            sc, "\nEnter new Company ID : ");
+
+                    String up_name = InputValidation.readString(
+                            sc, "Enter new Company Name : ");
+
+                    String up_location = InputValidation.readString(
+                            sc, "Enter new Company Location : ");
+
+                    float up_c_package = InputValidation.readFloat(
+                            sc, "Enter new Package Offered : ");
+
+                    String up_JobRole = InputValidation.readString(
+                            sc, "Enter new Job Role : ");
+
+                    cd.updateCompany(
+                            up_Id,
+                            up_name,
+                            up_location,
+                            up_c_package,
+                            up_JobRole);
+
                     break;
+
                 case 5:
                     System.out.println("Delete Company Records");
-                    System.out.println("Enter Company ID : ");
-                    int d_id = sc.nextInt();
+
+                    int d_id = InputValidation.readInt(
+                            sc, "Enter Company ID : ");
+
                     cd.deleteCompany(d_id);
                     break;
+
                 case 6:
-                    System.out.println("Thank you for visiting ! ");
+                    System.out.println(
+                            "Thank you for visiting ! ");
                     break;
+
                 default:
                     System.out.println("Invalid Choice !! ");
             }
-        } while (choice != 6);
 
+        } while (choice != 6);
     }
+
+
     public void PlacementManagement(Scanner sc) {
+
         PlacementService pd = new PlacementService();
         int choice;
+
         do {
             System.out.println("\n\tPlacement Management System");
             System.out.println("1. Add Placement ");
@@ -170,85 +224,117 @@ public class Main {
             System.out.println("4. Update Placement records ");
             System.out.println("5. Delete Placement records ");
             System.out.println("6. Exit");
-            System.out.print("Enter your choice : ");
-            choice = sc.nextInt();
-            sc.nextLine();
+
+            choice = InputValidation.readInt(
+                    sc, "Enter your choice : ");
+
             switch (choice) {
+
                 case 1:
                     System.out.println("\n\tAdd Placement");
-                    System.out.print("Enter Placement ID : ");
-                    int ID = sc.nextInt();
-                    sc.nextLine();
-                    System.out.print("Enter Company ID : ");
-                    int co_id = sc.nextInt();
-                    sc.nextLine();
-                    System.out.print("Enter Student ID : ");
-                    int st_id = sc.nextInt();
-                    sc.nextLine();
-                    System.out.print("Enter Company name : ");
-                    String cname = sc.nextLine();
-                    System.out.print("Enter Job Role : ");
-                    String jr = sc.nextLine();
-                    System.out.print("Enter salary offered : ");
-                    double sal = sc.nextDouble();
-                    sc.nextLine();
-                    System.out.print("Enter Placement Status : ");
-                    String status = sc.nextLine();
-                    System.out.print("Enter Placement Date : ");
-                    String date = sc.nextLine();
-                    Placement p =
-                            new Placement(ID, co_id, st_id, cname,
-                                    jr, sal, status, date);
+
+                    int ID = InputValidation.readInt(
+                            sc, "Enter Placement ID : ");
+
+                    int co_id = InputValidation.readInt(
+                            sc, "Enter Company ID : ");
+
+                    int st_id = InputValidation.readInt(
+                            sc, "Enter Student ID : ");
+
+                    String cname = InputValidation.readString(
+                            sc, "Enter Company name : ");
+
+                    String jr = InputValidation.readString(
+                            sc, "Enter Job Role : ");
+
+                    double sal = InputValidation.readDouble(
+                            sc, "Enter salary offered : ");
+
+                    String status = InputValidation.readString(
+                            sc, "Enter Placement Status : ");
+
+                    String date = InputValidation.readString(
+                            sc, "Enter Placement Date : ");
+
+                    Placement p = new Placement(
+                            ID,
+                            co_id,
+                            st_id,
+                            cname,
+                            jr,
+                            sal,
+                            status,
+                            date);
+
                     pd.addPlacement(p);
                     break;
+
                 case 2:
-                    System.out.println("\tDisplay all Placements Records ");
+                    System.out.println(
+                            "\tDisplay all Placements Records ");
+
                     pd.displayAllPlacements();
                     break;
+
                 case 3:
-                    System.out.println("\tDisplay Placement by ID ");
-                    System.out.print("Enter Placement ID : ");
-                    int id = sc.nextInt();
+                    System.out.println(
+                            "\tDisplay Placement by ID ");
+
+                    int id = InputValidation.readInt(
+                            sc, "Enter Placement ID : ");
+
                     pd.displayPlacementById(id);
                     break;
+
                 case 4:
-                    System.out.println("\tUpdate Placement Records ");
-                    System.out.print("Enter Placement ID : ");
-                    int up_ID = sc.nextInt();
-                    sc.nextLine();
-                    System.out.print("Enter Company ID : ");
-                    int up_co_id = sc.nextInt();
-                    sc.nextLine();
-                    System.out.print("Enter Student ID : ");
-                    int up_st_id = sc.nextInt();
-                    sc.nextLine();
-                    System.out.print("Enter Company name : ");
-                    String up_cname = sc.nextLine();
-                    System.out.print("Enter Job Role : ");
-                    String up_jr = sc.nextLine();
-                    System.out.print("Enter salary offered : ");
-                    double up_sal = sc.nextDouble();
-                    sc.nextLine();
-                    System.out.print("Enter Placement Status : ");
-                    String up_status = sc.nextLine();
-                    System.out.print("Enter Placement Date : ");
-                    String up_date = sc.nextLine();
-                    Placement placement =
-                            new Placement(up_ID, up_co_id, up_st_id,
-                                    up_cname, up_jr, up_sal,
-                                    up_status, up_date);
-                    pd.updatePlacement(up_ID, up_co_id, up_st_id,
-                            up_cname, up_jr, up_sal,
-                            up_status, up_date);
+                    System.out.println(
+                            "\tUpdate Placement Records ");
+
+                    int up_ID = InputValidation.readInt(
+                            sc, "Enter Placement ID : ");
+
+                    int up_co_id = InputValidation.readInt(
+                            sc, "Enter Company ID : ");
+
+                    int up_st_id = InputValidation.readInt(
+                            sc, "Enter Student ID : ");
+
+                    String up_cname = InputValidation.readString(
+                            sc, "Enter Company name : ");
+
+                    String up_jr = InputValidation.readString(
+                            sc, "Enter Job Role : ");
+
+                    double up_sal = InputValidation.readDouble(
+                            sc, "Enter salary offered : ");
+
+                    String up_status = InputValidation.readString(
+                            sc, "Enter Placement Status : ");
+
+                    String up_date = InputValidation.readString(
+                            sc, "Enter Placement Date : ");
+                    pd.updatePlacement(
+                            up_ID,
+                            up_co_id,
+                            up_st_id,
+                            up_cname,
+                            up_jr,
+                            up_sal,
+                            up_status,
+                            up_date);
                     break;
                 case 5:
-                    System.out.println("\tDelete Placement Records ");
-                    System.out.println("Enter Placement ID : ");
-                    int del_id = sc.nextInt();
+                    System.out.println(
+                            "\tDelete Placement Records ");
+
+                    int del_id = InputValidation.readInt(
+                            sc, "Enter Placement ID : ");
                     pd.deletePlacement(del_id);
                     break;
                 case 6:
-                    System.out.println("\nThank you for visiting !!");
+                    System.out.println(
+                            "\nThank you for visiting !!");
                     break;
                 default:
                     System.out.println("Invalid choice !!");
@@ -265,8 +351,8 @@ public class Main {
             System.out.println("2. Company Management System");
             System.out.println("3. Placement Management System");
             System.out.println("4. Exit");
-            System.out.print("\nEnter your choice : ");
-            choices = sc.nextInt();
+            choices = InputValidation.readInt(
+                    sc, "\nEnter your choice : ");
             switch (choices) {
                 case 1:
                     m.StudentManagement(sc);
@@ -278,10 +364,12 @@ public class Main {
                     m.PlacementManagement(sc);
                     break;
                 case 4:
-                    System.out.println("Thank you for visiting !!");
+                    System.out.println(
+                            "Thank you for visiting !!");
                     break;
                 default:
-                    System.out.println("Invalid choice, Select right choice");
+                    System.out.println(
+                            "Invalid choice, Select right choice");
             }
         } while (choices != 4);
         sc.close();
