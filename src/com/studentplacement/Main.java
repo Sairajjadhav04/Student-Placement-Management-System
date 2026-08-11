@@ -24,11 +24,11 @@ public class Main {
                 case 1:
                     System.out.println("\tAdd the Student ");
                     int id = InputValidation.readInt(sc, "Enter Student ID: ");
-                    String name = InputValidation.readString(
+                    String name = InputValidation.readName(
                             sc, "Enter Name: ");
                     String email = InputValidation.readEmail(
                             sc, "Enter Email: ");
-                    String branch = InputValidation.readString(
+                    String branch = InputValidation.readBranch(
                             sc, "Enter Branch: ");
                     double cgpa = InputValidation.readCgpa(
                             sc, "Enter CGPA: ");
@@ -57,13 +57,13 @@ public class Main {
                     int update_id = InputValidation.readInt(
                             sc, "Enter new Student ID: ");
 
-                    String update_name = InputValidation.readString(
+                    String update_name = InputValidation.readName(
                             sc, "Enter new Name: ");
 
                     String update_email = InputValidation.readEmail(
                             sc, "Enter new Email: ");
 
-                    String update_branch = InputValidation.readString(
+                    String update_branch = InputValidation.readBranch(
                             sc, "Enter new Branch: ");
 
                     double update_cgpa = InputValidation.readCgpa(
@@ -126,16 +126,16 @@ public class Main {
                     int Id = InputValidation.readInt(
                             sc, "\nEnter the Company ID : ");
 
-                    String name = InputValidation.readString(
+                    String name = InputValidation.readCompanyName(
                             sc, "Enter Company Name : ");
 
-                    String location = InputValidation.readString(
+                    String location = InputValidation.readLocation(
                             sc, "Enter Company Location : ");
 
                     float c_package = InputValidation.readFloat(
                             sc, "Enter Package Offered : ");
 
-                    String JobRole = InputValidation.readString(
+                    String JobRole = InputValidation.readJobRole(
                             sc, "Enter Job Role : ");
 
                     Company C = new Company(
@@ -168,16 +168,16 @@ public class Main {
                     int up_Id = InputValidation.readInt(
                             sc, "\nEnter new Company ID : ");
 
-                    String up_name = InputValidation.readString(
+                    String up_name = InputValidation.readCompanyName(
                             sc, "Enter new Company Name : ");
 
-                    String up_location = InputValidation.readString(
+                    String up_location = InputValidation.readLocation(
                             sc, "Enter new Company Location : ");
 
                     float up_c_package = InputValidation.readFloat(
                             sc, "Enter new Package Offered : ");
 
-                    String up_JobRole = InputValidation.readString(
+                    String up_JobRole = InputValidation.readJobRole(
                             sc, "Enter new Job Role : ");
 
                     cd.updateCompany(
@@ -242,19 +242,19 @@ public class Main {
                     int st_id = InputValidation.readInt(
                             sc, "Enter Student ID : ");
 
-                    String cname = InputValidation.readString(
+                    String cname = InputValidation.readCompanyName(
                             sc, "Enter Company name : ");
 
-                    String jr = InputValidation.readString(
+                    String jr = InputValidation.readJobRole(
                             sc, "Enter Job Role : ");
 
                     double sal = InputValidation.readDouble(
                             sc, "Enter salary offered : ");
 
-                    String status = InputValidation.readString(
+                    String status = InputValidation.readPlacementStatus(
                             sc, "Enter Placement Status : ");
 
-                    String date = InputValidation.readString(
+                    String date = InputValidation.readPlacementDate(
                             sc, "Enter Placement Date : ");
 
                     Placement p = new Placement(
@@ -300,19 +300,19 @@ public class Main {
                     int up_st_id = InputValidation.readInt(
                             sc, "Enter Student ID : ");
 
-                    String up_cname = InputValidation.readString(
+                    String up_cname = InputValidation.readCompanyName(
                             sc, "Enter Company name : ");
 
-                    String up_jr = InputValidation.readString(
+                    String up_jr = InputValidation.readJobRole(
                             sc, "Enter Job Role : ");
 
                     double up_sal = InputValidation.readDouble(
                             sc, "Enter salary offered : ");
 
-                    String up_status = InputValidation.readString(
+                    String up_status = InputValidation.readPlacementStatus(
                             sc, "Enter Placement Status : ");
 
-                    String up_date = InputValidation.readString(
+                    String up_date = InputValidation.readPlacementDate(
                             sc, "Enter Placement Date : ");
                     pd.updatePlacement(
                             up_ID,

@@ -115,4 +115,165 @@ public class InputValidation {
             }
         }
     }
+    public static String readName(Scanner scanner, String fieldName) {
+        while (true) {
+            try {
+                System.out.print("Enter " + fieldName + ": ");
+                String input = scanner.nextLine().trim();
+
+                if (input.isEmpty()) {
+                    throw new InvalidInputException(fieldName + " cannot be empty.");
+                }
+
+                if (!input.matches("[a-zA-Z ]+")) {
+                    throw new InvalidInputException(
+                            fieldName + " must contain only letters and spaces."
+                    );
+                }
+
+                return input;
+
+            } catch (InvalidInputException e) {
+                System.out.println("Invalid Input: " + e.getMessage());
+            }
+        }
+    }
+    public static String readBranch(Scanner sc, String fieldName) {
+        while (true) {
+            try {
+                System.out.print(fieldName);
+                String input = sc.nextLine().trim();
+
+                if (input.isEmpty()) {
+                    throw new InvalidInputException(
+                            "Branch cannot be empty.");
+                }
+
+                if (!input.matches("[a-zA-Z &]+")) {
+                    throw new InvalidInputException(
+                            "Branch must contain only letters, spaces and &.");
+                }
+
+                return input;
+
+            } catch (InvalidInputException e) {
+                System.out.println("Invalid Input: " + e.getMessage());
+            }
+        }
+    }
+    public static String readCompanyName(Scanner sc, String fieldName) {
+        while (true) {
+            try {
+                System.out.print(fieldName);
+                String input = sc.nextLine().trim();
+
+                if (input.isEmpty()) {
+                    throw new InvalidInputException(
+                            "Company Name cannot be empty.");
+                }
+
+                if (!input.matches("[a-zA-Z0-9 &.-]+")) {
+                    throw new InvalidInputException(
+                            "Company Name contains invalid characters.");
+                }
+
+                return input;
+
+            } catch (InvalidInputException e) {
+                System.out.println("Invalid Input: " + e.getMessage());
+            }
+        }
+    }
+    public static String readLocation(Scanner sc, String fieldName) {
+        while (true) {
+            try {
+                System.out.print(fieldName);
+                String input = sc.nextLine().trim();
+
+                if (input.isEmpty()) {
+                    throw new InvalidInputException(
+                            "Location cannot be empty.");
+                }
+
+                if (!input.matches("[a-zA-Z0-9 ,.-]+")) {
+                    throw new InvalidInputException(
+                            "Location contains invalid characters.");
+                }
+
+                return input;
+
+            } catch (InvalidInputException e) {
+                System.out.println("Invalid Input: " + e.getMessage());
+            }
+        }
+    }
+    public static String readJobRole(Scanner sc, String fieldName) {
+        while (true) {
+            try {
+                System.out.print(fieldName);
+                String input = sc.nextLine().trim();
+
+                if (input.isEmpty()) {
+                    throw new InvalidInputException(
+                            "Job Role cannot be empty.");
+                }
+
+                if (!input.matches("[a-zA-Z0-9 &/.-]+")) {
+                    throw new InvalidInputException(
+                            "Job Role contains invalid characters.");
+                }
+
+                return input;
+
+            } catch (InvalidInputException e) {
+                System.out.println("Invalid Input: " + e.getMessage());
+            }
+        }
+    }
+    public static String readPlacementStatus(Scanner sc, String fieldName) {
+        while (true) {
+            try {
+                System.out.print(fieldName);
+                String input = sc.nextLine().trim();
+
+                if (input.isEmpty()) {
+                    throw new InvalidInputException(
+                            "Placement Status cannot be empty.");
+                }
+
+                if (!input.matches("[a-zA-Z ]+")) {
+                    throw new InvalidInputException(
+                            "Placement Status must contain only letters and spaces.");
+                }
+
+                return input;
+
+            } catch (InvalidInputException e) {
+                System.out.println("Invalid Input: " + e.getMessage());
+            }
+        }
+    }
+    public static String readPlacementDate(Scanner sc, String fieldName) {
+        while (true) {
+            try {
+                System.out.print(fieldName);
+                String input = sc.nextLine().trim();
+
+                if (input.isEmpty()) {
+                    throw new InvalidInputException(
+                            "Placement Date cannot be empty.");
+                }
+
+                if (!input.matches("\\d{2}-\\d{2}-\\d{4}")) {
+                    throw new InvalidInputException(
+                            "Placement Date must be in DD-MM-YYYY format.");
+                }
+
+                return input;
+
+            } catch (InvalidInputException e) {
+                System.out.println("Invalid Input: " + e.getMessage());
+            }
+        }
+    }
 }
